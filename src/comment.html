@@ -1,0 +1,9 @@
+<template name="comment">
+  <div class="ui message comment" data-id="{{doc._id}}">
+    {{#if doc.title}}
+      <div class="title">{{doc.title}}</div>
+    {{/if}}
+    <div class="author">{{doc.author}}</div>
+    <div class="content">{{doc.content}}</div>
+  </div>
+</template>

@@ -1,0 +1,18 @@
+<template name="commentList">
+  <div class="comment-list">
+    <div class="inner">
+      <div class="toolbar">
+        <div class="ui add button">
+          <i class="add icon"></i>
+        </div>
+      </div>
+      {{#if hasItems}}
+        <div class="comments">
+          {{#each comments}}
+            {{> comment doc=this}}
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</template>
