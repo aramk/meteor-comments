@@ -1,28 +1,18 @@
 <template name="commentList">
   <div class="comment-list">
-    <div class="inner">
-      <div class="toolbar">
-        {{#if isEditing}}
-          <div class="ui save button"><i class="checkmark icon"></i></div>
-          <div class="ui cancel button"><i class="remove icon"></i></div>
-        {{else}}
-          <div class="ui add button"><i class="add icon"></i></div>
-        {{/if}}
-      </div>
-      <div class="form">
-        {{#if isEditing}}
-          <div class="ui input">
-            <textarea>{{}}</textarea>
-          </div>
-        {{/if}}
-      </div>
-      {{#if hasItems}}
-        <div class="comments">
+    {{#if currentUser}}
+      <div class="items">
+        {{#if hasItems}}
           {{#each comments}}
             {{> comment doc=this}}
           {{/each}}
-        </div>
-      {{/if}}
-    </div>
+        {{else}}
+          <p class="info">No comments</p>
+        {{/if}}
+      </div>
+      {{> commentForm series=series}}
+    {{else}}
+      <p class="info">Please <a class="login" href="#">log in</a> to comment.</p>
+    {{/if}}
   </div>
 </template>

@@ -13,7 +13,7 @@ Comments =
       _.each arg, (anArg) => @add(anArg)
     else if Types.isObjectLiteral(arg)
       arg.dateCreated = new Date()
-      arg.author = Meteor.user()
+      arg.author = Meteor.user()?._id
       collection.insert(arg)
     else
       throw new Error('Invalid comment argument: ' + arg)
@@ -36,16 +36,18 @@ Comments =
   getSchema: -> schema
 
 schema = new SimpleSchema
-  # Username of the author.
+  # User ID of the author.
   author:
     type: String
     index: true
   title:
     type: String
     optional: true
+    min: 1
   content:
     type: String
     optional: true
+    min: 1
   dateCreated:
     type: Date
   dateModified:
@@ -58,10 +60,10 @@ schema = new SimpleSchema
 
 collection = new Meteor.Collection('comments')
 collection.attachSchema(schema)
-SchemaUtils.allowUser = (userId, doc) -> userId?
-allowAuthor = (userId, doc) -> if doc.owner then doc.owner == userId else true
+allowUser = (userId, doc) -> userId?
+allowAuthor = (userId, doc) -> if doc.author then doc.author == userId else true
 collection.allow
-  insert: SchemaUtils.allowUser
+  insert: allowUser
   update: allowAuthor
   remove: allowAuthor
 
