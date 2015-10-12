@@ -58,10 +58,10 @@ schema = new SimpleSchema
 
 collection = new Meteor.Collection('comments')
 collection.attachSchema(schema)
-allowUser = (userId, doc) -> userId?
+SchemaUtils.allowUser = (userId, doc) -> userId?
 allowAuthor = (userId, doc) -> if doc.owner then doc.owner == userId else true
 collection.allow
-  insert: allowUser
+  insert: SchemaUtils.allowUser
   update: allowAuthor
   remove: allowAuthor
 

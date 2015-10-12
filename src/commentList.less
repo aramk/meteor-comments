@@ -3,11 +3,6 @@
 @color-yellow-text: #b58105;
 
 .comment-list {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 8000;
   .inner {
     margin: 5px;
     position: relative;
@@ -22,54 +17,6 @@
       margin: 0;
       padding: 0.3rem 0.3rem;
       background: none;
-    }
-  }
-  .notifications {
-    .notification {
-      display: none;
-      padding: 0.3rem 0.5rem;
-      margin: 0;
-      height: 30px;
-      max-height: 300px;
-      line-height: 22px;
-      overflow: hidden;
-      .icon {
-        float: left;
-        height: 22px;
-        line-height: 22px;
-        margin-right: 5px;
-      }
-      .title {
-        font-weight: bold;
-        float: left;
-        margin-right: 0.5rem;
-      }
-      .content {
-        text-align: center;
-        padding-right: 20px;
-      }
-      &:last-child {
-        display: block;
-        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
-      }
-      &.title {
-        background: white;
-      }
-    }
-  }
-  &.error {
-    .toolbar .icon {
-      color: @color-red-text;
-    }
-  }
-  &.info {
-    .toolbar .icon {
-      color: @color-blue-text;
-    }
-  }
-  &.warn {
-    .toolbar .icon {
-      color: @color-yellow-text;
     }
   }
 }
