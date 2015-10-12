@@ -5,6 +5,8 @@ TemplateClass.created = ->
   series = @data?.series
   unless series then throw new Error('No series ID provided for comment list.')
   @isEditing = new ReactiveVar(false)
+  # Old subscriptions are retained if we need to view the same series later.
+  Meteor.subscribe 'comments', series: series
 
 TemplateClass.helpers
   items: -> getCursor()
@@ -14,5 +16,5 @@ TemplateClass.helpers
 TemplateClass.events
   'click a.login': -> Router.go('login')
 
-getCursor = -> Comments.find()
+getCursor = -> Comments.find series: getTemplate().data.series
 getTemplate = (template) -> Templates.getNamedInstance(templateName, template)

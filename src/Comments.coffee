@@ -68,8 +68,6 @@ collection.allow
   remove: allowAuthor
 
 if Meteor.isServer
-
-  Meteor.publish 'comments', ->
+  Meteor.publish 'comments', (selector) ->
     return unless @userId?
-    collection.find().fetch()
-
+    collection.find(selector)

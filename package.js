@@ -18,14 +18,15 @@ Package.onUse(function (api) {
     'aldeed:simple-schema@1.3.2',
     'aldeed:collection2@2.3.3',
     'urbanetic:utility@1.0.1'
-  ], 'client');
+  ], ['client', 'server']);
   api.use([
     'semantic:ui-css@2.0.8'
   ], {weak: true});
   api.imply('semantic:ui-css');
-  api.export('Comments', 'client');
+  api.export([
+    'Comments'
+  ], ['client', 'server']);
   api.addFiles([
-    'src/Comments.coffee',
     'src/comment.html',
     'src/comment.coffee',
     'src/commentList.html',
@@ -34,4 +35,7 @@ Package.onUse(function (api) {
     'src/commentForm.html',
     'src/commentForm.coffee'
   ], 'client');
+  api.addFiles([
+    'src/Comments.coffee'
+  ], ['client', 'server']);
 });

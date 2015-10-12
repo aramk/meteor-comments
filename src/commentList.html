@@ -3,7 +3,7 @@
     {{#if currentUser}}
       <div class="items">
         {{#if hasItems}}
-          {{#each comments}}
+          {{#each items}}
             {{> comment doc=this}}
           {{/each}}
         {{else}}
