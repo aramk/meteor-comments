@@ -3,3 +3,44 @@
     color: rgba(0, 0, 0, .4);
   }
 }
+
+.textarea-expanded {
+  min-height: 6rem;
+  height: 6rem;
+}
+
+.ui.comment.form {
+  textarea {
+    padding: 0.5rem;
+    min-height: 2.25rem;
+    height: 2.25rem;
+    &:focus {
+      .textarea-expanded;
+    }
+  }
+  .meta {
+    margin-bottom: 0.3rem;
+    display: inline-block;
+    width: 100%;
+    .author {
+      float: left;
+    }
+    .tools {
+      float: right;
+      .send {
+        display: none;
+      }
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+  &.has-content {
+    .meta .tools .send {
+      display: inline-block;
+    }
+    textarea {
+      .textarea-expanded
+    }
+  }
+}

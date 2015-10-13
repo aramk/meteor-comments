@@ -1,9 +1,13 @@
 <template name="commentForm">
-  <form class="ui message comment form">
-    <div class="author">{{author}}</div>
+  <form class="ui comment form {{hasContentClass}}">
+    <div class="meta">
+      <div class="author">{{author}}</div>
+      <div class="tools">
+        <a class="send">Send</a>
+      </div>
+    </div>
     <div class="ui input content">
       <textarea value="{{doc.content}}"></textarea>
     </div>
-    <button type="submit" class="ui button">Send</button>
   </form>
 </template>

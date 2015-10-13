@@ -4,19 +4,20 @@ Comments =
 
   add: (arg) ->
     user = Meteor.user()
-    unless user
-      throw new Error()
+    return Q.reject('Current user does not exist') unless user
 
-    if Types.isString(arg)
-      arg = {content: arg}
+    if Types.isString(arg) then arg = {content: arg}
+
     if Types.isArray(arg)
-      _.each arg, (anArg) => @add(anArg)
+      Q.all _.map arg, (anArg) => @add(anArg)
     else if Types.isObjectLiteral(arg)
+      df = Q.defer()
       arg.dateCreated = new Date()
       arg.author = Meteor.user()?._id
-      collection.insert(arg)
+      collection.insert arg, Promises.toCallback(df)
+      df.promise
     else
-      throw new Error('Invalid comment argument: ' + arg)
+      Q.reject('Invalid comment argument: ' + arg)
 
   find: (args, options) ->
     args = Setter.merge({

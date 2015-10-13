@@ -1,9 +1,16 @@
 <template name="comment">
-  <div class="ui message comment" data-id="{{doc._id}}">
-    {{#if doc.title}}
-      <div class="title">{{doc.title}}</div>
-    {{/if}}
-    <div class="author">{{author}}</div>
-    <div class="content">{{doc.content}}</div>
+  <div class="comment" data-id="{{doc._id}}">
+    <!-- <a class="avatar">
+      <img src="/images/avatar/small/matt.jpg">
+    </a> -->
+    <div class="content">
+      <a class="author">{{author}}</a>
+      <div class="metadata">
+        <span class="date">{{date}}</span>
+      </div>
+      <div class="text">
+        <div class="content">{{doc.content}}</div>
+      </div>
+    </div>
   </div>
 </template>
