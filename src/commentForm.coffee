@@ -17,7 +17,7 @@ TemplateClass.events
     e.preventDefault()
     # Prevent submission from triggering outer forms to submit.
     e.stopPropagation()
-  'click a.send': (e, template) -> template.$('form').submit()
+  'click a.add': (e, template) -> template.$('form').submit()
 
 TemplateClass.helpers
   author: -> @doc?.author ? Meteor.user()?.profile.name ? 'Anonymous'
