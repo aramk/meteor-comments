@@ -36,6 +36,8 @@ Comments =
 
   getSchema: -> schema
 
+  getCollection: -> collection
+
 schema = new SimpleSchema
   # User ID of the author.
   author:
