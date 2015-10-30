@@ -9,14 +9,8 @@ TemplateClass.created = ->
   Meteor.subscribe 'comments', series: series
 
 TemplateClass.rendered = ->
-  $commentList = @$('.comment-list')
-  $items = $('.items', $commentList)
-  $innerItems = $('.inner-items', $items)
-  scrollToBottom = _.debounce ->
-    $items.scrollTop $innerItems.height()
-  , 300
-  Collections.observe getCursor(), scrollToBottom
-  scrollToBottom()
+  Collections.observe getCursor(), delayedScrollToBottom.bind(@, @)
+  delayedScrollToBottom(@)
 
 TemplateClass.helpers
   items: -> getCursor()
@@ -25,6 +19,16 @@ TemplateClass.helpers
 
 TemplateClass.events
   'click a.login': -> Router.go('login')
+  'focus .comment.form': (e, template) -> delayedScrollToBottom(template)
+
+scrollToBottom = (template) ->
+  template = getTemplate(template)
+  $commentList = @$('.comment-list')
+  $items = $('.items', $commentList)
+  $innerItems = $('.inner-items', $items)
+  $items.scrollTop $innerItems.height()
+
+delayedScrollToBottom = _.debounce scrollToBottom, 300
 
 getCursor = -> Comments.find series: getTemplate().data.series
 getTemplate = (template) -> Templates.getNamedInstance(templateName, template)
