@@ -1,9 +1,18 @@
+@import 'layout';
+
 .comment-list {
+  max-height: 300px;
+  .flex;
   .info {
     color: rgba(0, 0, 0, .4);
   }
   .items {
     margin-bottom: 1rem;
+    overflow: auto;
+    .flex-grow;
+  }
+  .ui.comment.form {
+    .flex-shrink;
   }
 }
 

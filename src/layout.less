@@ -1,0 +1,16 @@
+.flex(@direction: column) {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.flex-grow(@size: 1) {
+  flex-grow: @size;
+  -webkit-flex-grow: @size;
+}
+
+.flex-shrink(@size: 0) {
+  flex-shrink: @size;
+  -webkit-flex-shrink: @size;
+}

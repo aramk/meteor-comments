@@ -31,6 +31,7 @@ Package.onUse(function (api) {
     'src/comment.coffee',
     'src/commentList.html',
     'src/commentList.coffee',
+    'src/layout.less',
     'src/commentList.less',
     'src/commentForm.html',
     'src/commentForm.coffee'

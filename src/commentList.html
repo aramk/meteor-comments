@@ -2,13 +2,15 @@
   <div class="ui comments comment-list">
     {{#if currentUser}}
       <div class="items">
-        {{#if hasItems}}
-          {{#each items}}
-            {{> comment doc=this}}
-          {{/each}}
-        {{else}}
-          <p class="info">No comments</p>
-        {{/if}}
+        <div class="inner-items">
+          {{#if hasItems}}
+            {{#each items}}
+              {{> comment doc=this}}
+            {{/each}}
+          {{else}}
+            <p class="info">No comments</p>
+          {{/if}}
+        </div>
       </div>
       {{> commentForm series=series}}
     {{else}}
