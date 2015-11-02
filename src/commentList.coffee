@@ -28,7 +28,7 @@ scrollToBottom = (template) ->
   $innerItems = $('.inner-items', $items)
   $items.scrollTop $innerItems.height()
 
-delayedScrollToBottom = _.debounce scrollToBottom, 300
+delayedScrollToBottom = _.debounce scrollToBottom, 200
 
 getCursor = -> Comments.find series: getTemplate().data.series
 getTemplate = (template) -> Templates.getNamedInstance(templateName, template)
