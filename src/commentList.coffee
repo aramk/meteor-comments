@@ -9,7 +9,7 @@ TemplateClass.created = ->
   Meteor.subscribe 'comments', series: series
 
 TemplateClass.rendered = ->
-  Collections.observe getCursor(), delayedScrollToBottom.bind(@, @)
+  @autorun => Collections.observe getCursor(), delayedScrollToBottom.bind(@, @)
   delayedScrollToBottom(@)
 
 TemplateClass.helpers
