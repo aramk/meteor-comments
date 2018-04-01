@@ -1,7 +1,7 @@
 // Meteor package definition.
 Package.describe({
   name: 'aramk:comments',
-  version: '1.0.0',
+  version: '1.0.0_1',
   summary: 'User comments',
   git: 'https://github.com/aramk/meteor-comments.git'
 });
@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function (api) {
   api.versionsFrom('METEOR@1.6.1');
   api.use([
-    'coffeescript@1.2.3',
+    'coffeescript@2.2.1_1',
     'underscore',
     'templating@1.3.2',
     'less',
