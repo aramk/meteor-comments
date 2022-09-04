@@ -1,7 +1,7 @@
 // Meteor package definition.
 Package.describe({
   name: 'aramk:comments',
-  version: '1.1.0',
+  version: '2.0.0',
   summary: 'User comments',
   git: 'https://github.com/aramk/meteor-comments.git'
 });
@@ -12,12 +12,12 @@ Package.onUse(function (api) {
     'coffeescript@2.2.1_1',
     'underscore',
     'templating@1.3.2',
-    'less',
+    'less@4.0.0',
     'reactive-var@1.0.4',
     'tracker@1.0.5',
     'aldeed:simple-schema@1.3.2',
-    'aldeed:collection2@2.3.3',
-    'urbanetic:utility@2.0.0'
+    'aldeed:collection2@3.5.0',
+    'urbanetic:utility@3.0.0'
   ], ['client', 'server']);
   api.use([
     'aramk:semantic-ui@2.4.1_1'
